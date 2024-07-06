@@ -1,113 +1,135 @@
+// Import statement at the top
 import Image from "next/image";
+import React from "react"; // Import React (optional, depending on your setup)
+import styles from './Home.module.css'; // Assuming CSS module for styling
 
-export default function Home() {
+const ProgressBar = ({ progress }) => {
+  // Inline styles for the container of the progress bar
+  const containerStyles = {
+    height: '20px',
+    width: '100%',
+    backgroundColor: 'black',
+    borderRadius: '0px',
+    margin: '25px 0',
+    border: '1px dashed darkblue',
+    position: 'relative',
+    fontWeight: 'bold',
+  };
+
+  // Updated inline styles for the filler of the progress bar, including the transition
+  const fillerStyles = {
+    height: '100%',
+    width: `${progress}%`, // This will be dynamically updated based on the progress prop
+    backgroundColor: 'darkblue',
+    borderRadius: '1px',
+    textAlign: 'right',
+    transition: 'width 2s ease-in-out', // Smooth transition for width change
+  };
+
+  // Inline styles for the percentage text
+  const percentageStyles = {
+    position: 'absolute',
+    right: '-35px',
+    top: '0',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    color: 'darkblue',
+    fontSize: '14px',
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div style={containerStyles}>
+      <div style={fillerStyles}></div>
+      <div style={percentageStyles}>{progress}%</div>
+    </div>
+  );
+};
+
+// Define your Home component
+function Home() { 
+  // Function to generate scrolling text
+  const generateScrollingText = () => {
+    return "test test test test test test test test test test - ".repeat(2000);
+  };
+
+  return (
+    <div className={styles.homeContainer}>
+      <div className={styles.header}>
+        <div className={styles.header1}>
+        </div>
+        <div className={styles.header2}>
+          <h1 className={styles.header2a}>tyler guest</h1>
+          <p>cs student. software engineer. tguest@umich.edu&nbsp;
+            <a href="mailto:tguest@umich.edu" className={styles.emailLink}>
+            (click to send email).
+            </a>
+          </p>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className={styles.scrollingSection}>
+        <div className={styles.scrollingText}>
+          {generateScrollingText()}
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+      <div className={styles.projects}>
+        <h1>projects</h1>
+        <div className={styles.projectContainer}>
+          <h2 style={{fontWeight: 'bold'}}>project name: 3DQ</h2>
+          <h2 style={{fontWeight: 'bold'}}>github repo:&nbsp;
+            <a href="https://github.com/tylerguest/3DQ" className={styles.emailLink} target="_blank" rel="noopener noreferrer">
+            https://github.com/tylerguest/3DQ
+            </a>
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+          <p>vst plugin built with c++ and the juce framework.</p>
+          <div style={{display: 'flex', alignItems: 'center'}}> {/* New container with flexbox */}
+            <span style={{marginRight: '10px', fontWeight: 'bold'}}>progress:</span> {/* Progress text */}
+            <ProgressBar progress={30} />
+          </div>
+        </div>
+        <div className={styles.projectContainer}>
+          <h2 style={{fontWeight: 'bold'}}>project name: oneComp</h2>
+          <h2 style={{fontWeight: 'bold'}}>github repo:&nbsp;
+            <a href="https://github.com/tylerguest/oneComp" className={styles.emailLink} target="_blank" rel="noopener noreferrer">
+            https://github.com/tylerguest/oneComp
+            </a>
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+          <p>vst plugin built with c++ and the juce framework.</p>
+          <div style={{display: 'flex', alignItems: 'center'}}> {/* New container with flexbox */}
+            <span style={{marginRight: '10px', fontWeight: 'bold'}}>progress:</span> {/* Progress text */}
+            <ProgressBar progress={65} />
+          </div>
+        </div>
+        <div className={styles.projectContainer}>
+          <h2 style={{fontWeight: 'bold'}}>project name: vhsite</h2>
+          <h2 style={{fontWeight: 'bold'}}>github repo:&nbsp;
+            <a href="https://github.com/tylerguest/vhsite" className={styles.emailLink} target="_blank" rel="noopener noreferrer">
+            https://github.com/tylerguest/vhsite
+            </a>
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <p>vst plugin built with c++ and the juce framework.</p>
+          <div style={{display: 'flex', alignItems: 'center'}}> {/* New container with flexbox */}
+            <span style={{marginRight: '10px', fontWeight: 'bold'}}>progress:</span> {/* Progress text */}
+            <ProgressBar progress={75} />
+          </div>
+        </div>
+        <div className={styles.skills}>
+          <h1>skills</h1>
+          <ul>
+            <li>c++</li>
+            <li>react</li>
+            <li>typescript</li>
+            <li>next.js</li>
+            <li>html & jsx</li>
+            <li>version control</li>
+            <li>JUCE framework</li>
+          </ul>
+        </div>
       </div>
-    </main>
+      {/* Add more child divs as needed */}
+    </div>
   );
 }
+
+// Export your Home component as the default export
+export default Home;

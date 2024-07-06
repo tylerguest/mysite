@@ -1,0 +1,127 @@
+@keyframes scrollTextToRight {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+}
+
+.scrollingText {
+  animation: scrollTextToRight 30000s linear infinite;
+}
+
+.homeContainer {
+    width: 840px;
+    min-height: 100vh; /* Corrected from minHeight */
+    background-color: transparent; /* Corrected from backgroundColor */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Corrected from flexDirection */
+    overflow-y: auto; /* Corrected from overflowY */
+    border-left: 1px dashed darkblue; /* Corrected from borderLeft */
+    border-right: 1px dashed darkblue; /* Corrected from borderRight */
+    font-family:monospace;
+  }
+  
+.header {
+  display: flex;
+  flex-direction: row;
+  margin: 14px 0;
+  padding: 0px;
+  color: darkblue;
+  height: 154px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+  .header1 {
+    
+    border: 1px dashed darkblue;
+    width: 154px;
+    height: 100%;
+  }
+
+  .header2 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 12px;
+  }
+  
+  .header2a {
+    font-size: 22px;
+    font-weight: 600;
+    max-width: 100%;
+    line-height: 1; /* Adjust line height as needed */
+  }
+  
+  /* Example of a media query for smaller screens */
+  @media (max-width: 600px) {
+    .header2a {
+      font-size: 6vw; /* Larger font size for smaller screens */
+    }
+  }
+
+  .emailLink {
+    color: darkblue; /* Text color */
+    text-decoration: none; /* Removes underline */
+     /* Adjust padding as needed */
+    transition: background-color 0.1s; /* Smooth transition for background color */
+  }
+  
+  .emailLink:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text color on hover */
+  }
+  
+  .scrollingSection {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    margin: 0px 0;
+    padding: 10px;
+    background-color: darkblue; /* Corrected from backgroundColor */
+    color: black;
+    height: 17.5px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap; /* Corrected from whiteSpace */
+  }
+  
+  .projects {
+    display: flex;
+    flex-direction: column; /* Changed from row to column */
+    align-items: flex-start; /* Keeps children aligned to the start */
+    margin: 10px 0;
+    color: darkblue;
+    font-size: 22px;
+    font-weight: 600;
+    width: 100%;
+    padding-left: 14px;
+  }
+  
+  .projectContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 400;
+    gap: 0px;
+    margin-top: 20px;
+    margin-left: 0px;
+    /* Add any additional styling here */
+  } 
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+    color: darkblue;
+    font-size: 22px;
+    font-weight: 600;
+    width: 100%;
+    padding-left: 0px;
+  }
+  
+  .skills li {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 5px 0;
+  }
