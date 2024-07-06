@@ -60,9 +60,9 @@ function Home() {
         </div>
         <div className={styles.header2}>
           <h1 className={styles.header2a}>tyler guest</h1>
-          <p>cs student. software engineer. tguest@umich.edu&nbsp;
+          <p>cs student.<br/>software engineer.<br/>tguest@umich.edu<br/>
             <a href="mailto:tguest@umich.edu" className={styles.emailLink}>
-            (click to send email).
+            (click to send email)
             </a>
           </p>
         </div>
@@ -73,7 +73,7 @@ function Home() {
         </div>
       </div>
       <div className={styles.projects}>
-        <h1>projects</h1>
+        <h1>current projects</h1>
         <div className={styles.projectContainer}>
           <h2 style={{fontWeight: 'bold'}}>project name: 3DQ</h2>
           <h2 style={{fontWeight: 'bold'}}>github repo:&nbsp;
@@ -121,12 +121,17 @@ function Home() {
             <li>typescript</li>
             <li>next.js</li>
             <li>html & jsx</li>
-            <li>version control</li>
             <li>JUCE framework</li>
+            <li>version control</li>
           </ul>
         </div>
       </div>
-      {/* Add more child divs as needed */}
+      <footer className={styles.footer}>
+        {/* Social media links and contact info */}
+        <a href="https://github.com/tylerguest" className={styles.emailLink} target="_blank" rel="noopener noreferrer">
+            github
+            </a> 
+      </footer>
     </div>
   );
 }
